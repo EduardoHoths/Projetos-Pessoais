@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Sriracha&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: linear-gradient(330deg, #74BF04, #E7F2D5) no-repeat;
+    height: 100vh;
+}
+main{
+    text-align: center;
+    width: 500px;
+    margin: 0 auto;
+    
+}
+h1{
+    font-family: 'Kaushan Script';
+    font-size: 5em;
+    color: #0E2E17;
+    padding-top: 50px;
+}
+#addTask{
+    width: 400px;
+    height: 40px;
+    margin-top: 50px;
+    border-radius: 20px;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 1.3em;
+    background: #74BF04;
+    color: #044002;
+    outline: none;
+    transition: 0.7s all;
+    margin-bottom: 50px;
+}
+#addTask:focus{
+    width: 500px;
+}
+::-webkit-input-placeholder{
+    text-align: center;
+    color: #044002;
+}
+#list{
+    text-align: left;
+}
+#list div{
+    border: 1px solid;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 30px;
+    font-size: 1.2em;
+    font-family: 'Sriracha', cursive;
+    background: #044002;
+    color: #E7F2D5;
+    position: relative;
+}
+input[type='checkbox']{
+    margin: 10px 50px;
+    text-align: left;
+    transform: scale(2);
+}
+.checked + label{
+    text-decoration: line-through 4px black;
+}
+label img {
+    width: 30px;
+    position: absolute;
+    right: 70px;
+    cursor: pointer;
+}
