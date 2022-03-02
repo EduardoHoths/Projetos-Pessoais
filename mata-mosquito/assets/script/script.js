@@ -58,7 +58,7 @@ function randomPosition() {
 
     // create HTML
     let mosquito = document.createElement('img')
-    mosquito.src = '../assets/images/mosquito.png'
+    mosquito.src = '../mata-mosquito/assets/images/mosquito.png'
     mosquito.className = randomSize() + ' ' + randonSide()
     mosquito.style.left = positionX + 'px'
     mosquito.style.top = positionY + 'px'
@@ -69,8 +69,6 @@ function randomPosition() {
     }
 
     document.body.appendChild(mosquito)
-
-
 }
 randomPosition()
 
