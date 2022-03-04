@@ -23,6 +23,7 @@ header {
             .navbar-collapse {
                 flex-grow: unset;
             }
+            
         }
     }
 
@@ -33,6 +34,11 @@ header {
     }
     .navbar-light .navbar-nav .nav-link {
         color: white;
+        transition: 0.4s;
+        
+        &:hover{
+            color: #98eadd;
+        }
     }
 }
 
@@ -262,8 +268,9 @@ footer {
         flex-direction: column;
 
         .iphone {
-            width: 300px;
-            padding: 10px 0;
+            width: 250px;
+            padding: 0;
+            margin: 0;
         }
     }
 }
