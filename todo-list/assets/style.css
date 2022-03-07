@@ -5,7 +5,7 @@
     padding: 0;
 }
 body{
-    background: linear-gradient(330deg, #74BF04, #E7F2D5) no-repeat;
+    background: #2b2e43;
     height: 100vh;
 }
 main{
@@ -17,19 +17,19 @@ main{
 h1{
     font-family: 'Kaushan Script';
     font-size: 5em;
-    color: #0E2E17;
+    color: white;
     padding-top: 50px;
 }
 #addTask{
     width: 400px;
     height: 40px;
     margin-top: 50px;
-    border-radius: 20px;
+    border-radius: 15px;
     border: 2px solid black;
     text-align: center;
     font-size: 1.3em;
-    background: #74BF04;
-    color: #044002;
+    background: white;
+    color: blueviolet;
     outline: none;
     transition: 0.7s all;
     margin-bottom: 50px;
@@ -39,7 +39,7 @@ h1{
 }
 ::-webkit-input-placeholder{
     text-align: center;
-    color: #044002;
+    color: blueviolet;
 }
 #list{
     text-align: left;
@@ -48,17 +48,20 @@ h1{
     border: 1px solid;
     margin: 10px 0;
     padding: 10px;
-    border-radius: 30px;
+    border-radius: 15px;
     font-size: 1.2em;
     font-family: 'Sriracha', cursive;
-    background: #044002;
-    color: #E7F2D5;
+    background: #484c69;
+    color: white;
     position: relative;
+    border: none;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.328);
 }
 input[type='checkbox']{
     margin: 10px 50px;
     text-align: left;
     transform: scale(2);
+    cursor: pointer;
 }
 .checked + label{
     text-decoration: line-through 4px black;

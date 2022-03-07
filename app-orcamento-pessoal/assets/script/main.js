@@ -98,7 +98,7 @@ function registerExpense() {
     const amount = document.getElementById('amount')
 
     if (day.value <= 0 || day.value > 31) {
-        return showModal(false)
+        return showModal('error')
     }
 
     const expense = new Expense(year.value, mouth.value, day.value, type.value, description.value.toLowerCase(), amount.value)
@@ -159,9 +159,7 @@ function loadingExpenses(expenses = Array(), filter = false) {
     }
 
     const expensesList = document.getElementById('expensesList')
-    expensesList.innerHTML = ''
-
-
+    expensesList.innerHTML = '' // when doing a search, clear the table
 
     expenses.forEach(expense => {
         let row = expensesList.insertRow()
