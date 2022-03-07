@@ -1,26 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Sriracha&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     background: #2b2e43;
     height: 100vh;
 }
-main{
+
+main {
     text-align: center;
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     margin: 0 auto;
-    
 }
-h1{
+
+h1 {
     font-family: 'Kaushan Script';
     font-size: 5em;
     color: white;
     padding-top: 50px;
 }
-#addTask{
+
+.input {
+    width: 100%;
+    max-width: 500px;
+}
+
+#addTask {
     width: 400px;
     height: 40px;
     margin-top: 50px;
@@ -34,17 +43,21 @@ h1{
     transition: 0.7s all;
     margin-bottom: 50px;
 }
-#addTask:focus{
+
+#addTask:focus {
     width: 500px;
 }
-::-webkit-input-placeholder{
+
+::-webkit-input-placeholder {
     text-align: center;
     color: blueviolet;
 }
-#list{
+
+#list {
     text-align: left;
 }
-#list div{
+
+#list div {
     border: 1px solid;
     margin: 10px 0;
     padding: 10px;
@@ -57,18 +70,52 @@ h1{
     border: none;
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.328);
 }
-input[type='checkbox']{
+
+input[type='checkbox'] {
     margin: 10px 50px;
     text-align: left;
     transform: scale(2);
     cursor: pointer;
 }
+
 .checked + label{
-    text-decoration: line-through 4px black;
+    text-decoration-line: line-through;
+    text-decoration-style: solid;
+    text-decoration-thickness: 4px;
+    text-decoration-color: black;
 }
+
 label img {
     width: 30px;
     position: absolute;
     right: 70px;
     cursor: pointer;
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 3em;
+    }
+
+    #addTask {
+        width: 300px;
+    }
+
+    #addTask:focus {
+        width: 350px;
+    }
+}
+
+@media (max-width: 350px) {
+    h1 {
+        font-size: 3em;
+    }
+
+    #addTask {
+        width: 280px;
+    }
+
+    #addTask:focus {
+        width: 310px;
+    }
 }

@@ -65,7 +65,7 @@ function addTask(e) {
 
 function createEventListener() {
     const checkboxes = document.querySelectorAll('.task')
-    checkboxes.forEach(checkbox => checkbox.addEventListener('click', checked))
+    checkboxes.forEach(checkbox => checkbox.onclick = () => checked(checkbox))
 }
 
 function createTaskArea() {
@@ -74,18 +74,18 @@ function createTaskArea() {
 
     tasks.forEach(task => {
         const div = document.createElement('div')
-
+        
         const label = document.createElement('label')
         label.innerHTML = `${task.task.toUpperCase()}`
 
         const btnDelete = document.createElement('label')
         btnDelete.innerHTML = `<img src='https://cdn-icons-png.flaticon.com/512/6269/6269603.png'>`
         btnDelete.id = task.id
-        btnDelete.addEventListener('click', deleteTask)
+        //btnDelete.addEventListener('click', deleteTask) 
+        btnDelete.onclick = () =>  deleteTask(btnDelete.id) 
 
         const checkbox = document.createElement('input')
         checkbox.setAttribute('type', 'checkbox')
-        checkbox.id = task.id
 
         div.appendChild(checkbox).classList.add('task')
         div.appendChild(label)
@@ -95,17 +95,28 @@ function createTaskArea() {
     createEventListener()
 }
 
-function checked(event) {
-     if (event.target.classList == 'task checked') {
+function checked(checkbox) {
+
+    if(checkbox.checked === true){
+        checkbox.classList.add('checked')
+    } else {
+        checkbox.classList.remove('checked')
+    }
+
+    /*  if (event.target.classList == 'task checked') {
         event.target.classList.remove('checked')
     } else {
         event.target.classList.add('checked')
-    }
+    } */
 }
 
-function deleteTask(e) {
-    dataBase.remove(e.path[1].id)
-    list.removeChild(e.path[2])
+function deleteTask(id) {
+    const task = document.getElementById(id)    
+    dataBase.remove(task.id)
+
+    list.removeChild(task.parentElement)
+    //dataBase.remove(e.path[1].id)
+    //list.removeChild(e.path[2])
 }
 
 window.addEventListener('keydown', addTask)
