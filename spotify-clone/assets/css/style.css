@@ -30,6 +30,13 @@ header nav.navbar-transparente .container .navbar-collapse {
           flex-grow: unset;
 }
 
+header .navbar-toggler {
+  all: unset;
+  margin-right: 20px;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
 header .divisor {
   width: 1px;
   background: white;
@@ -274,8 +281,11 @@ footer .social img {
 }
 
 @media (max-width: 750px) {
+  li, a {
+    padding-left: 10px;
+  }
   .divisor {
-    display: none;
+    opacity: 0;
   }
   #second-content {
     padding: 20px 0;
@@ -332,9 +342,15 @@ footer .social img {
     padding: 0;
     margin: 0;
   }
+  .carousel-inner {
+    height: 320px;
+  }
 }
 
 @media (max-width: 576px) {
+  #first-content .carousel-inner {
+    height: 200px;
+  }
   #first-content .carousel-inner h1 {
     font-size: 2em;
   }
@@ -351,6 +367,9 @@ footer .social img {
 }
 
 @media (max-width: 350px) {
+  #first-content .carousel-inner {
+    height: 230px;
+  }
   #third-content .content {
     width: 300px;
   }
