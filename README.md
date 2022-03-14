@@ -10,3 +10,4 @@
 - [Game Mata Mosquito](https://github.com/EduardoHoths/Projetos-Pessoais/tree/main/mata-mosquito)
 - [Spotify Clone](https://github.com/EduardoHoths/Projetos-Pessoais/tree/main/spotify-clone)
 - [App Orçamento Pessoal](https://github.com/EduardoHoths/Projetos-Pessoais/tree/main/app-orcamento-pessoal)
+- [Vending Machine](https://github.com/EduardoHoths/Projetos-Pessoais/tree/main/vending-machine)
