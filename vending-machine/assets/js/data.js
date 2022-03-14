@@ -76,7 +76,6 @@ function updateSales(){
                     price: el.price,
                     qtd: el.qtd
                 })
-                console.log('TotalSales é igual a zero');
                 return
             }      
             if(i == sales.length){
@@ -90,12 +89,10 @@ function updateSales(){
             if(el.product == totalSales[i].product){
                 totalSales[i].price += el.price
                 totalSales[i].qtd += el.qtd
-                console.log('esse produto existe em totalSales');
                 return
             }
             
         }
     })
-    console.log(totalSales);
     sales = Array()
 }
