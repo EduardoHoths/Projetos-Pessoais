@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/img/icon.png" type="image/x-icon">
+    <title>Vending Machine</title>
+</head>
+<body>
+    <main class="box">
+        
+        <div class="productPanel">
+            <button class="product" id="1">
+                <img src="assets/img/coca.png" alt="">
+            </button>
+            <button class="product" id="2">
+                <img src="assets/img/coca-zero.png" alt="">
+            </button>
+            <button class="product" id="3">
+                <img src="assets/img/del-vale.png" alt="">
+            </button>
+            <button class="product" id="4">
+                <img src="assets/img/fanta.png" alt="">
+            </button>
+            <button class="product" id="5">
+                <img src="assets/img/guarana.png" alt="">
+            </button>
+            <button class="product" id="6">
+                <img src="assets/img/schwepps.png" alt="">
+            </button>
+            <button class="product" id="7">
+                <img src="assets/img/sprite.png" alt="">
+            </button>
+            <button class="product" id="8">
+                <img src="assets/img/tonica-schwepps.png" alt="">
+            </button>
+        </div>
+
+        <div class="qtd" >
+            <input type="number" name="" id="qtd" placeholder="INSIRA A QUANTIDADE">
+        </div>
+
+        <div class="display">
+
+            <div id="menu">
+                <p class="menu"><i>*Selecione uma bebida*</i></p>
+                <button class="menu" onclick="showTotalSales()">Total de vendas</button>
+                <button class="menu" onclick="checkStock()">Verificar estoque</button>
+            </div>
+
+            <div class="panel" id="panel">
+
+                <h1></h1>
+
+                <div id="stock"></div>
+
+                <div id="resume"></div>
+
+                <div class="total" id="total">
+
+                    <p id="infoPurchase">Total</p>
+                    <p id="totalValuePurchase"></p>
+
+                </div>
+
+                <div id="totalSalesArea">
+                    <div id="salesDetails"></div>
+                    <div id="totalSales">
+                        <h3>Total</h3>
+                        <p id="totalValueSales"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="payment">
+            <input id="payment" type="number" placeholder="INSIRA O VALOR" disabled class="disable">
+        </div>
+    </main>
+
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/data.js"></script>
+    <script defer src="assets/js/display.js"></script>
+    
+</body>
+</html>
