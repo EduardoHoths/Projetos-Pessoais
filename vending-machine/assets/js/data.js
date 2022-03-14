@@ -49,27 +49,26 @@ const data = [
     }
 ]
 
-function updateStock(cart){
+function updateStock(cart) {
     cart.forEach(el => {
-        for(let i in data){
-            if(el.product == data[i].product){
+        for (let i in data) {
+            if (el.product == data[i].product) {
                 data[i].qtd -= el.qtd
             }
         }
     })
     data.forEach(el => {
-        if(el.qtd === 0){
+        if (el.qtd === 0) {
             document.getElementById(el.id).classList.add('disabled')
         }
     })
 }
 
-function updateSales(){
-    
+function updateSales() {
+
     sales.forEach(el => {
-        
-        for (let i = 0; i <= sales.length; i++) {
-            console.log(el, i);
+
+        for (let i = 0; i <= totalSales.length; i++) {
             if (totalSales.length === 0) {
                 totalSales.push({
                     product: el.product,
@@ -77,8 +76,13 @@ function updateSales(){
                     qtd: el.qtd
                 })
                 return
-            }      
-            if(i == sales.length){
+            }
+            if (el.product == totalSales[i].product) {
+                totalSales[i].price += el.price
+                totalSales[i].qtd += el.qtd
+                return
+            }
+            if (i == totalSales.length - 1) {
                 totalSales.push({
                     product: el.product,
                     price: el.price,
@@ -86,12 +90,6 @@ function updateSales(){
                 })
                 return
             }
-            if(el.product == totalSales[i].product){
-                totalSales[i].price += el.price
-                totalSales[i].qtd += el.qtd
-                return
-            }
-            
         }
     })
     sales = Array()
