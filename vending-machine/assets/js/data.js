@@ -65,31 +65,37 @@ function updateStock(cart){
 }
 
 function updateSales(){
+    
     sales.forEach(el => {
+        
         for (let i = 0; i <= sales.length; i++) {
+            console.log(el, i);
             if (totalSales.length === 0) {
                 totalSales.push({
                     product: el.product,
-                    price: parseFloat(el.price) ,
+                    price: el.price,
                     qtd: el.qtd
                 })
+                console.log('TotalSales é igual a zero');
                 return
             }      
-            try {
-                if(el.product == totalSales[i].product){
-                    totalSales[i].price += parseFloat(el.price)
-                    totalSales[i].qtd += el.qtd
-                    return
-                }
-            } catch(e){
+            if(i == sales.length){
                 totalSales.push({
                     product: el.product,
-                    price: parseFloat(el.price),
+                    price: el.price,
                     qtd: el.qtd
                 })
                 return
             }
+            if(el.product == totalSales[i].product){
+                totalSales[i].price += el.price
+                totalSales[i].qtd += el.qtd
+                console.log('esse produto existe em totalSales');
+                return
+            }
+            
         }
     })
+    console.log(totalSales);
     sales = Array()
 }
