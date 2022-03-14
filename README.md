@@ -1,6 +1,8 @@
-# Projetos-Pessoais
+# ✨ Projetos Pessoais
 
-Repositório para armazenar meus projetos pessoais
+<p>Repositório para armazenar meus projetos que vou realizando no meu aprendizado como desenvolvedor Front-end.</p>
+
+## 💻 Projetos
 
 - [Calculadora](https://github.com/EduardoHoths/Projetos-Pessoais/tree/main/calculator)
 - [Efeito Parallax](https://github.com/EduardoHoths/Projetos-Pessoais/tree/main/parallax-top-animes)
