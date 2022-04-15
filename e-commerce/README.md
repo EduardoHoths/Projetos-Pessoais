@@ -29,4 +29,4 @@
 
 ## 💻 Para visualizar o site completo clique no link abaixo
 
--   [E-commerce Page]()
+-   [E-commerce Page](https://eduardohoths.github.io/Projetos-Pessoais/e-commerce/)
