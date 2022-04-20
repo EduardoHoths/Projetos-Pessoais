@@ -31,17 +31,18 @@ export const LogicalStorage = ({ children }) => {
         if(num.toString().length === 13 && !result){
             return
         }
-        if(result){
-            setNum(target.innerText);
-            setResult(false)
-            return
-        }
-        if(operator && result){ 
+        
+        if(operator && result && !oldNum){ 
             setOldNum(num)
             setNum(target.innerText);
             return
         }
         
+        if(result && !operator){
+            setNum(target.innerText);
+            setResult(false)
+            return
+        }
         if (num === 0) {
             setNum(target.innerText);
         } else {
@@ -75,6 +76,7 @@ export const LogicalStorage = ({ children }) => {
         }
         if(num.toString().length === 1){
             setNum(0)
+            setResult(false)
             return
         }
         setNum(num.toString().slice(0, -1));
