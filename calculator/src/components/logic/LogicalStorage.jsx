@@ -5,8 +5,6 @@ export const LogicalContext = React.createContext();
 const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 const operators = ['+', '-', '*', '/'];
 
-
-
 export const LogicalStorage = ({ children }) => {
     const [num, setNum] = React.useState(0);
     const [oldNum, setOldNum] = React.useState(null);
@@ -30,12 +28,7 @@ export const LogicalStorage = ({ children }) => {
     }, [num]);
 
     function handleNumber({ target }) {
-        if(num.toString().length === 13){
-            return
-        }
-        if(operator && result){ 
-            setOldNum(num)
-            setNum(target.innerText);
+        if(num.toString().length === 13 && !result){
             return
         }
         if(result){
@@ -43,6 +36,12 @@ export const LogicalStorage = ({ children }) => {
             setResult(false)
             return
         }
+        if(operator && result){ 
+            setOldNum(num)
+            setNum(target.innerText);
+            return
+        }
+        
         if (num === 0) {
             setNum(target.innerText);
         } else {
@@ -145,7 +144,6 @@ export const LogicalStorage = ({ children }) => {
             return 
         }
         if(operators.includes(key)){
-            console.log('aqui');
             operatorInput({target: {innerText: key}})
             return 
         }
