@@ -2,6 +2,11 @@ import React from "react";
 
 export const LogicalContext = React.createContext();
 
+const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const operators = ['+', '-', '*', '/'];
+
+
+
 export const LogicalStorage = ({ children }) => {
     const [num, setNum] = React.useState(0);
     const [oldNum, setOldNum] = React.useState(null);
@@ -20,9 +25,14 @@ export const LogicalStorage = ({ children }) => {
         } else {
             setNumDisplay(num)
         }
+
+        
     }, [num]);
 
     function handleNumber({ target }) {
+        if(num.toString().length === 13){
+            return
+        }
         if(operator && result){ 
             setOldNum(num)
             setNum(target.innerText);
@@ -129,6 +139,38 @@ export const LogicalStorage = ({ children }) => {
         
     }
 
+    window.onkeydown = ({key}) => {
+        if(numbers.includes(key)){
+            handleNumber({target: {innerText: key}})
+            return 
+        }
+        if(operators.includes(key)){
+            console.log('aqui');
+            operatorInput({target: {innerText: key}})
+            return 
+        }
+        if(key === ","){
+            decimal()
+            return 
+        }
+        if(key === "Backspace"){
+            backspace()
+            return 
+        }
+        if(key === "Delete"){
+            allClear()
+            return 
+        }
+        if(key === "="){
+            calculate({target: {innerText: key}})
+            return 
+        }
+        if(key === "%"){
+            percentage()
+            return 
+        }
+    }
+
     return (
         <LogicalContext.Provider
             value={{
@@ -147,3 +189,4 @@ export const LogicalStorage = ({ children }) => {
         </LogicalContext.Provider>
     );
 };
+
