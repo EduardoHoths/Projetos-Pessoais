@@ -1,0 +1,149 @@
+import React from "react";
+
+export const LogicalContext = React.createContext();
+
+export const LogicalStorage = ({ children }) => {
+    const [num, setNum] = React.useState(0);
+    const [oldNum, setOldNum] = React.useState(null);
+    const [numDisplay, setNumDisplay] = React.useState("");
+    const [operator, setOperator] = React.useState(null);
+    const [result, setResult] = React.useState(false);
+
+    React.useEffect(() => {
+        if(num.toString().includes(".")) {
+            if(num.toString().length >= 10){
+                setNumDisplay(Number(num).toFixed(8).replace('.', ','));
+            } else{
+                setNumDisplay(num.toString().replace('.', ','));
+            }
+            
+        } else {
+            setNumDisplay(num)
+        }
+    }, [num]);
+
+    function handleNumber({ target }) {
+        if(operator && result){ 
+            setOldNum(num)
+            setNum(target.innerText);
+            return
+        }
+        if(result){
+            setNum(target.innerText);
+            setResult(false)
+            return
+        }
+        if (num === 0) {
+            setNum(target.innerText);
+        } else {
+            setNum(num + target.innerText);
+        }
+    }
+    function operatorInput({ target }) {
+        if(operator && num !== 0){
+            calculate('')
+            setOperator(target.innerText);
+            return
+        }
+        setOperator(target.innerText);
+        setNum(0);
+
+        if (oldNum === null) {
+            setOldNum(num);
+        }
+    }
+
+    function allClear() {
+        setNum(0);
+        setOldNum(null);
+        setOperator(null);
+        setResult(false)
+    }
+
+    function backspace() {
+        if(num === 0){
+            return 
+        }
+        if(num.toString().length === 1){
+            setNum(0)
+            return
+        }
+        setNum(num.toString().slice(0, -1));
+    }
+    function percentage() {
+        setNum(num / 100);
+    }
+
+    function decimal() {
+        if (num.toString().includes(".")) {
+            return;
+        }
+        setNum(num + ".");
+    }
+    function calculate({target}) {
+        if(oldNum === null){
+            return
+        }
+        if (operator === "+") {
+            setNum(
+                (
+                    parseFloat(oldNum) +
+                    parseFloat(num)
+                ).toString()
+            );
+            setOldNum(null);
+        }
+        if (operator === "-") {
+            setNum(
+                (
+                    parseFloat(oldNum) -
+                    parseFloat(num)
+                ).toString()
+            );
+            setOldNum(null);
+        }
+        if (operator === "x") {
+            setNum(
+                (
+                    parseFloat(oldNum) *
+                    parseFloat(num)
+                ).toString()
+            );
+            setOldNum(null);
+        }
+        if (operator === "/") {
+            setNum(
+                (
+                    parseFloat(oldNum) /
+                    parseFloat(num)
+                ).toString()
+            );
+            setOldNum(null);
+        }
+        
+        setResult(true)
+
+        if(target && target.innerText === '='){
+            setOperator(null)
+        }
+        
+    }
+
+    return (
+        <LogicalContext.Provider
+            value={{
+                numDisplay,
+                operator,
+                allClear,
+                backspace,
+                percentage,
+                handleNumber,
+                calculate,
+                decimal,
+                operatorInput,
+            }}
+        >
+            {children}
+        </LogicalContext.Provider>
+    );
+};
